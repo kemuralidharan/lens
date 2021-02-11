@@ -1,0 +1,133 @@
+#version control
+
+Version control system records changes to a file or set of fies over a period of time.
+Example:
+assignment--->given to you--->due date is 1 week--->you started preparing
+
+you have done everything and it gives you 80% of the mark.And now inorder to get that 20%  you are doing some modification 
+and the code seems to be not working.Now you are 2 days away from the deadline.you want the old code to be back.
+
+solution:
+maintain a copy of 80% code----->make a clone of it and do 20% of it
+
+(like this you can maintain various copy of the code)--->for that you need a version control.
+
+**Helps in software field.
+
+#Local version system:
+
+if you are doing a project and you have many files of code you maintain them in a seperate directory.
+if you need to changee something from it we will create a another new directory.
+
+version 1--->version 2---->version 3--->file(you can maintain a wording of what you did or you can maintain a time stamp of each version)
+
+#Centalized and distributed version control system:
+
+centralized version control:
+
+computer-A <-------------| version database
+  file                   | version-3
+                         | version-2
+computer-B <-------------| version-1
+ file
+
+ whoever wants to do operation with file who is working an same project can access them.
+ But one disadvantage is that computer-A and computer-B cannot able to communicate.
+
+ Distributed version control system:
+
+  computer-A--------->| version database
+   files              | version 3
+                      | version 2    
+  computer-B--------->| version 1
+   file  
+
+  (Here both A and B also will communicate.Both knows what changes that they are making of)             
+
+  #GIT 
+  Directory 1--->Directory 2--->......n ]->FILESYSTEM
+  GIT maintains a set of snapshot of minifile system.
+  Like git:bitbucket,gitbucket,beanstalk.
+
+  #maindifference between GIT and Other version control system.
+ 1.)Other version control system:
+there will be many version and whatever that you change will make another copy but not contains the copy of original one and it doesnt make changes to previous one.
+adv:It saves space
+2.)GIT:
+Here whatever changes made will create new clone and copy them as well as in old one. 
+
+#installation of GITHUB:
+public:All can see what you post
+private:Need to pay inorder to get access to it.
+Organazation:seperate account and confidential over particular network.
+
+installing:
+1.$sudo apt-get update
+  $sudo apt-get install git
+2.seeing whether the downloaded software is correct or not by using
+  $git--version   (latest version: 2.27. 0)
+3.configuration by username/password:
+  $git config -global user.name "jack"
+  $git config -global user.email "abc@def.ghi"
+
+#STORAGE AREAS:
+1.Working Directory:
+We will have the entire project or some directories in the working directories
+2.Local Database repository:
+you will have the copy of your project in your local system and whatever changes that you make is visible to you only.
+3.Global Database repository:
+Whatever you change all those copy will be visible to your working team.
+
+#creating a local repository:
+1.$git init--->empty directory
+2.$git add (pathname) [Staging Area]
+3.$git commit---->working directory is moved to local directory
+
+Terminologies:
+Commited-->saved succesfully
+Modified-->making some changes
+Staged-->in your local repository only few modified files are moved to Global repository.
+
+Cloning an Existing repository:
+Whenever you and search for a file you see (clone or download) option over there.
+so $git clone [url]----->from git you can move all files to your local repository
+
+$git init<------->$git clone [url]
+            |
+            |
+            |
+            ^
+    working directory
+           .git
+
+whatever you downloaded all will bew present on the .github folder
+
+Changing or modifying the files on local system:
+
+untrack--->Staged
+unmodified--->modified--->staged--->unmodified
+**why we again go for unmodified is there only we started our work so we tend to move to their itself.
+removing file-->untracked
+
+Status of file:
+1.)$ git status:nothing to commit working directory is clean.
+(**you dont have anything in your directory)
+2.)$ git add readme
+(** adding some files to repository)
+
+Staging modified files:
+
+GIT ADD is used;
+1.to begin tracking a new file
+2.to stage files
+3.for marking merge conflicted files
+
+Viewing your staged and previous comment:
+For one last time you can see that what you have been done before commit.
+command:$ git diff --cached
+**this command shows you difference between staged and unmodified**
+
+GIT COMMIT:
+$ git commit
+we can show the user in meaningfull way by adding msg with commit.
+$ git commit -m "msg"
